@@ -137,25 +137,7 @@ var typed = new Typed("#typewriter", {
     loop: true
 })
 
-// contact
-const scriptURL = 'https://script.google.com/macros/s/AKfycbyUggNqPo1y4odqme3pVgpqdGkprsJV0A2EqoYwlq9aGooEtoSjlSMsR2mgQL9Bp0Xn/exec'
-const form = document.forms['submit-to-google-sheet']
-const resmessages = document.getElementById("resmessages")
 
-
-form.addEventListener('submit', e => {
-    e.preventDefault()
-    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-        .then(response => {
-            resmessages.innerHTML = "Message sent successfully!"
-            setTimeout(function () {
-                resmessages.innerHTML = ""
-            }, 4000)
-            form.reset()
-        })
-        .catch(error => console.error('Error!', error.message))
-})
-//end contact
 
 // Select the centeredDiv element
 const centeredDiv = document.getElementById("loader-wrapper");
