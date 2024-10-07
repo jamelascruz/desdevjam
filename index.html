@@ -1333,8 +1333,8 @@
               <i class="fa fa-paper-plane"></i><span class="send-text">SEND</span>
             </div>
           </button>
+            <span id="resmessages"></span>
         </form>
-        <span id="resmessages"></span>
       </div>
     </div>
   </section>
@@ -1368,6 +1368,27 @@
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
   <script src="index.js"></script>
   <script src="popper.js"></script>
+   <script>
+         // contact
+const scriptURL = 'https://script.google.com/macros/s/AKfycbzkWMUMZmMTEswUY8LcDLwPD7UfNw5GkYbu2trjF3wE1U7cT7Ycu26_577gAX1A_E-y/exec'
+const form = document.forms['submit-to-google-sheet']
+const resmessages = document.getElementById("resmessages")
+
+
+form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+            resmessages.innerHTML = "Message sent successfully!"
+            setTimeout(function () {
+                resmessages.innerHTML = ""
+            }, 4000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+})
+//end contact
+   </script>
 </body>
 
 </html>
