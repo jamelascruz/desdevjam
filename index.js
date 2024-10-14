@@ -47,49 +47,49 @@ const canElement = document.querySelector('.can');
 //   $marqueeContent.append($marqueeContent.children().eq(i).clone(true));
 // }
 // ===============================shuffleElement  START =============================
-// var velocity = 30;
-// var shuffleElement = $('.jobTitle');
+var velocity = 30;
+var shuffleElement = $('.WHOIAM');
 
-// shuffleElement.each(function() {
-//   $(this).attr('data-text', $(this).text());
-// });
+shuffleElement.each(function() {
+  $(this).attr('data-text', $(this).text());
+});
 
-// var shuffle = function(o) {
-//   for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
-//   return o;
-// };
+var shuffle = function(o) {
+  for (var j, x, i = o.length; i; j = parseInt(Math.random() * i), x = o[--i], o[i] = o[j], o[j] = x);
+  return o;
+};
 
-// var shuffleText = function(element, originalText) {
-//   var elementTextArray = [];
-//   var randomText = [];
+var shuffleText = function(element, originalText) {
+  var elementTextArray = [];
+  var randomText = [];
 
-//   for (var i = 0; i < originalText.length; i++) {
-//     elementTextArray.push(originalText.charAt(i));
-//   }
+  for (var i = 0; i < originalText.length; i++) {
+    elementTextArray.push(originalText.charAt(i));
+  }
 
-//   var repeatShuffle = function(times, index) {
-//     if (index === times) {
-//       element.text(originalText);
-//       return;
-//     }
+  var repeatShuffle = function(times, index) {
+    if (index === times) {
+      element.text(originalText);
+      return;
+    }
 
-//     setTimeout(function() {
-//       randomText = shuffle(elementTextArray.slice());
-//       for (var i = 0; i < index; i++) {
-//         randomText[i] = originalText.charAt(i);
-//       }
-//       element.text(randomText.join(''));
-//       index++;
-//       repeatShuffle(times, index);
-//     }, velocity);
-//   }
+    setTimeout(function() {
+      randomText = shuffle(elementTextArray.slice());
+      for (var i = 0; i < index; i++) {
+        randomText[i] = originalText.charAt(i);
+      }
+      element.text(randomText.join(''));
+      index++;
+      repeatShuffle(times, index);
+    }, velocity);
+  }
 
-//   repeatShuffle(originalText.length, 0);
-// }
+  repeatShuffle(originalText.length, 0);
+}
 
-// shuffleElement.mouseenter(function() {
-//   shuffleText($(this), $(this).data('text'));
-// });
+shuffleElement.mouseenter(function() {
+  shuffleText($(this), $(this).data('text'));
+});
 
 // ===============================shuffleElement END =============================
 // theme
